@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laboratorio 2</title>
+    <style>
+        body{
+            background-color:beige;
+        }
+      h1 {
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      p {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        text-align: left;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Laboratorio 2</h1>
+
+    <!-- Punto Nº 1 -->
+    <p>
+      <b>¿Qué es Javascript y en qué se asemeja a Java?</b>
+      <br>
+      JavaScript es un lenguaje de programación multiplataforma orientado a
+      objetos que se utiliza para hacer que las paginas web sean interactivas.
+      <br />
+      JavaScript y Java son simulares en algunos aspectos, pero fundamentalmente
+      diferentes en otros. El lenguaje JavaScript se parece a Java pero no tiene
+      el tipado estatico ni la fuerte verificacion de tipos de Java. JavaScript
+      sigue la mayoria de la sintaxis de las expresiones de Java, convenciones
+      de nomeclatura y construcciones de control de flujo basicas, razón por la
+      cual se cambio el nombre de LiveScript a JavaScript.
+    </p>
+    <a
+      href="https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Introduction"
+      target="_blank"
+      >Refencia</a
+    >
+
+    <script>
+      //Punto nº 2 Declarar 2 variables con var y imprimir el resultado de las operaciones matematicas basica.
+      var a = 10;
+      var b = 5;
+      suma = a + b;
+      resta = a - b;
+      multiplicacion = a * b;
+      division = a / b;
+      console.log("Resultado de la suma:", suma);
+      console.log("Resultado de la resta:", resta);
+      console.log("Resultado de la multiplicacion:", multiplicacion);
+      console.log("Resultado de la division:", division);
+
+      //Punto nº 3 Declarar 2 variables con let e imprimir la concatenacion de estas
+      let nombre = "Brando";
+      let apellido = "Avila";
+      console.log(
+        "Concatenacion de las variables let:",
+        nombre + " " + apellido
+      );
+
+      //Punto nº4 Declarar 2 variables con const e imprimir el tipo de dato de esta
+      const PI = 3.1416;
+      const cierto = true;
+      console.log(typeof PI);
+      console.log(typeof cierto);
+      /*
+        Punto nº 5 declarar una variable tipo Object colocar 4 llaves dentro de el que contenga
+        un number, un string, un booleano, y un objecto vacio en ese mismo orden.
+        */
+      let tipoObjeto = {
+        numero: 24,
+        texto: "Hola",
+        verdad: true,
+        vacio: {},
+      };
+      console.log(tipoObjeto);
+      /*
+        Escribir una funcion que tome un numero entero positivo como argumento y devuelva la 
+        suma de todos los numeros menores que sean multiplos de 3 o 5. Por ejemplo: 
+        Si el número dado es 10, la función debería devolver la suma de 3, 5, 6 y 9, que es 23
+        */
+
+      function sumar(number) {
+        var suma = 0;
+        for (var i = 0; i < number; i++) {
+          if (i % 3 === 0 || i % 5 === 0) {
+            suma += i;
+          }
+        }
+        return suma;
+      }
+      Resultado = sumar(20);
+      console.log("Resultado de la funcion:", Resultado);
+    </script>
+  </body>
+</html>
