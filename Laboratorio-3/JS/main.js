@@ -79,7 +79,15 @@ document
 
 //Funcion para determinar que un año es bisiesto
 function yearBisiesto(a) {
-  return a % 4 === 0;
+  if (a % 400 === 0){
+    return true;
+  } else if(a % 100 === 0){
+    return false;
+  } else if (a % 4 === 0){
+    return true;
+  } else{
+    return false;
+  }
 }
 
 //PROBLEMA 4
