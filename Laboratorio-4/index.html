@@ -1,25 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Laboratorio 4</title>
-</head>
-<body>
+    <style>
+        .color-black{
+            color: black;
+        }
+        
+        .color-blue{
+            color: blue;
+        }
+
+        .color-gray{
+            color: gray;
+        }
+    </style>
+  </head>
+  <body>
     <header>
-        <h1>Laboratorio 4</h1>
+      <h1>Laboratorio 4</h1>
     </header>
     <div>
-        <form> Escriba Aqui
-            <input type="text" id="cadena" placeholder="Escriba Aqui">
-<select name="" id="">
-        <option value="">Negro</option>
-        <option value="">Azul</option>
-        <option value="">Gris</option>
-      </select>
-        </form> 
-        <p id="response"></p>
+      <form>
+        Escriba Aqui
+        <input type="text" name="cadena" placeholder="Escriba Aqui" />
+        <select id="color">
+          <option value="black">Negro</option>
+          <option value="blue">Azul</option>
+          <option value="gray">Gris</option>
+        </select>
+      </form>
+      <span id="response"></span>
     </div>
+    <script src="../utils.js"></script>
     <script src="./js/app.js"></script>
-</body>
+  </body>
 </html>
