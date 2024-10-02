@@ -30,7 +30,7 @@ const App = (({ reverseString }) => {
 
   const bindEvents = () => {
     htmlElement.form.elements.cadena.addEventListener(
-      "keydown",
+      "input",
       handlers.onForm
     );
     htmlElement.colorSelect.addEventListener('change', handlers.onColorChange);
