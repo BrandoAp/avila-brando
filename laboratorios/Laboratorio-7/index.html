@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Votación</title>
+    <link rel="stylesheet" href="/laboratorios/Laboratorio-7/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sistema de Votación</h1>
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" placeholder="Nombre del candidato">
+            <label for="color">Color</label>
+            <input type="color" id="color" value="#FF5733">
+            <button id="agregar">Agregar</button>
+        </div>
+        <table id="candidatos-table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Votos</th>
+                    <th>Color</th>
+                    <th>Votar o Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Los candidatos se agregarán aquí dinámicamente -->
+            </tbody>
+        </table>
+        <div id="bar-chart">
+          <h2>Grafica</h2>
+            <div id="bar" style="position: relative; height: 30px; background-color: #e0e0e0; border-radius: 5px; overflow: hidden;"></div>
+        </div>
+    </div>
+
+    <script src="/laboratorios/Laboratorio-7/js/app.js"></script>
+</body>
+</html>
