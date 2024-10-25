@@ -6,10 +6,14 @@ const Utils = (()=>{
         const n2 = Number(c).toString(10);
         return isPalindrome(n1) && isPalindrome(n2);
       }
+    const generatedRandomNumber = () => {
+      let randomNumber = Math.floor(Math.random() * 99) + 1;
+    }  
       return {
         reverseString,
         isPalindrome,
         isDoubleBasePalindrome,
+        generatedRandomNumber,
       }
 
 })();
