@@ -23,7 +23,7 @@ const handlers = {
         htmlElements.clearButton.style.display = 'block';
     },
     clear: () => {
-        htmlElements.details.innerHtml = '';
+        htmlElements.details.innerHTML = '';
         htmlElements.clearButton.style.display = 'none';
     }
 }
