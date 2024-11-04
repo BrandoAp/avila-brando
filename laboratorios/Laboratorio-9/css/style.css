@@ -147,13 +147,18 @@ form > label{
 input {
     background-color: #E8E8E8;
     font-size: 1rem;
-    height: 2rem;
+    height: 1rem;
+    padding: 0.5rem;
     color: black;
     cursor: pointer;
     border-radius: 0.3rem;
     text-align: left;
     text-indent: 1rem;
     border: none; 
+}
+
+input:placeholder-shown{
+    font-family: 'Montserrat', sans-serif;
 }
 
 div#button-container{
