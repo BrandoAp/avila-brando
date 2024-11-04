@@ -1,18 +1,39 @@
+import { getPokemon, renderPokemon, sanitizeName } from './pokemon.js';
 
-const App = (() => {
-    const htmlElements = {
-        form : document.querySelector('form'),
-        input_pokemon : document.querySelector('#input-pokemon'),
-        button_find_pokemon : document.querySelector('#button-find-pokemon'),
-    }
+const htmlElements = {
+    form: document.querySelector('#pokemon-form'),
+    details: document.querySelector('#pokemon-details'),
+    clearButton : document.querySelector('#button-clear')
+}
 
-    const handlers = {
-        onFormSubmit (e) {
-            let pokemon_name = htmlElements.input_pokemon.value;
-        }
-    }
+const handlers = {
+    submit: async (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const pokemonName = formData.get('pokemon-name');
+        const sanitizedName = sanitizeName(pokemonName);
+        if(!sanitizedName) {
+            alert('Por favor, ingrese un nombre valido');
+            htmlElements.clearButton.style.display = 'none';
+            return;
+        };
+        const pokemon = await getPokemon(sanitizedName);
+        renderPokemon(htmlElements.details, pokemon);
 
-    const bindEvents = () => {
-        htmlElements.form.addEventListener('click', handlers.onFormSubmit);
+        htmlElements.clearButton.style.display = 'block';
+    },
+    clear: () => {
+        htmlElements.details.innerHtml = '';
+        htmlElements.clearButton.style.display = 'none';
     }
-})()
+}
+const bindEvents = () => {
+    htmlElements.form.addEventListener('submit', handlers.submit);
+    htmlElements.clearButton.addEventListener('click', handlers.clear);
+}
+
+const init = () => {
+    bindEvents();
+}
+
+init();

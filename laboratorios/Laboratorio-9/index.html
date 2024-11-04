@@ -4,19 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Poke Api</title>
-    <link rel="stylesheet" href="/laboratorios/Laboratorio-9/css/style.css">
+    <link rel="stylesheet" href="/laboratorios/Laboratorio-9/css/style.css" />
     <script src="/laboratorios/Laboratorio-9/js/app.js" type="module"></script>
   </head>
   <body>
-    <main class="container">
-      <h1>CONSULTA TUS POKEMOS FAVORITOS</h1>
+    <main>
       <section>
-        <form>
-          <label>Buscador de Pokemos</label>
-            <input id="input-pokemon" type="text" placeholder="Ingresa el nombre del pokemon"/>
-            <button id="button-find-pokemon" type="submit">Buscar</button>
+        <img
+          src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png"
+          alt="PokéAPI Logo"
+        />
+        <h3>Buscador de pokemones</h3>
+        <p>Busca desde pokemones hasta habilidades de los mismos.</p>
+        <form id="pokemon-form">
+          <label for="pokemon-name"><b>Buscar</b></label>
+          <input
+            id="input-pokemon"
+            type="text"
+            placeholder="Ingresa el nombre del pokemon"
+            name="pokemon-name"
+          />
+          <div id="button-container">
+            <button id="button-find-pokemon" type="submit">Buscar</button> 
+            <button id="button-clear" type="button">Limpiar</button>
+          </div>
         </form>
       </section>
+      <section id="pokemon-details"></section>
     </main>
   </body>
 </html>
