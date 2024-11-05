@@ -4,7 +4,7 @@ const htmlElements = {
     form: document.querySelector('#pokemon-form'),
     details: document.querySelector('#pokemon-details'),
     clearButton : document.querySelector('#button-clear')
-}
+} 
 
 const handlers = {
     submit: async (event) => {

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parcial 3</title>
+    <link rel="stylesheet" href="/parciales/parcial-3/css/style.css" />
+    <script src="/parciales/parcial-3/js/app.js" type="module"></script>
+  </head>
+  <body>
+    <main id="container">
+      <section id="form-container">
+        <img
+          src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png"
+          alt="PokéAPI Logo"
+        />
+        <h3>Buscador de pokemones</h3>
+        <span>Busca desde pokemones hasta habilidades de los mismos</span>
+        <form>
+          <div class="label-container">
+            <label>Buscar</label>
+            <label>Tipo de búsqueda</label>
+          </div>
+          <div class="inputs-container">
+            <input type="text" id="input-pokemon" name="pokemon-name" required/>
+            <select id="type-search">
+              <option value="pokemon">Por pokemon</option>
+              <option value="abilities">Por habilidad</option>
+            </select>
+          </div>
+          <div class="button-container">
+            <button id="button-search" type="submit">Buscar</button>
+            <button id="clear-button" type="button" style="display: none">
+              Limpiar
+            </button>
+          </div>
+        </form>
+      </section>
+      <section id="details"></section>
+    </main>
+  </body>
+</html>
