@@ -6,11 +6,12 @@ const sanitizeName = (name_pokemon) => {
   return name_pokemon
     .trim()
     .toLowerCase()
-    .replace(/[^a-z]/g, "");
+    .replace(/[^a-z][-][a-z]/g, "");
 };
 
 const getPokemon = async (name_pokemon) => {
   const response = await fetch(`${POKE_API_POKEMON}/${name_pokemon}/`);
+  if (!response.ok) alert("No existe ningun pokemon con el nombre ingresado");
   return response.json();
 };
 
@@ -35,6 +36,7 @@ const getEvolution = async (name_pokemon) => {
 
 const getAbilities = async (name_ability) => {
   const response = await fetch(`${POKE_API_ABILITIES}/${name_ability}/`);
+  if (!response.ok) alert("No existe ninguna habilidad con el nombre ingresado");
   return response.json();
 };
 
@@ -60,14 +62,19 @@ const renderPokemon = (template, pokemon) => {
         <h3>Evolution Chain</h3>
         <ul>
           ${evolution_chain
-            .map(evolution => `<li>${evolution.charAt(0).toUpperCase() + evolution.slice(1)} </li>`)
+            .map(
+              (evolution) =>
+                `<li>${
+                  evolution.charAt(0).toUpperCase() + evolution.slice(1)
+                } </li>`
+            )
             .join("")}
         </ul>
       </div>
       <div class="pokemon-abilities">
         <h3>Abilities</h3>
         <ul>
-          ${abilities.map(({ ability }) => `<li>${ability.name}</li>`).join('')}
+          ${abilities.map(({ ability }) => `<li>${ability.name}</li>`).join("")}
         </ul>
       </div>
     </div>
@@ -76,4 +83,31 @@ const renderPokemon = (template, pokemon) => {
   template.innerHTML = html;
 };
 
-export { getPokemon, sanitizeName, renderPokemon, getEvolution };
+const renderAbilities = (template, ability) => {
+  const { name, pokemon } = ability;
+  const html = `
+  <div class="abilities-card">
+    <div class="abilities-card_header">
+      <h2>${name.charAt(0).toUpperCase() + name.slice(1)}</h2>
+    </div>
+    <div class="abilities-card_body">
+      <div class="pokemon-learn_it">
+        <h3>Who can learn it?</h3>
+        <ul>${pokemon
+          .map(({ pokemon }) => `<li>${pokemon.name}</li>`)
+          .join("")}</ul>
+      </div>
+    </div>
+  </div>
+  `;
+  template.innerHTML = html;
+};
+
+export {
+  getPokemon,
+  sanitizeName,
+  renderPokemon,
+  getEvolution,
+  getAbilities,
+  renderAbilities,
+};

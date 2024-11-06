@@ -96,12 +96,6 @@ select {
     text-indent: 0.3rem;
     width: 49%;
 }
-option {
-    background-color: #E8E8E8;
-    border-radius: 0.3rem;
-    border: none;
-    font-family: 'Montserrat', sans-serif;
-}
 
 div.button-container{
     display: flex;
@@ -126,89 +120,73 @@ button:hover {
 
 #details {
     display: flex;
-    
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
 }
 
-.pokemon-card {
+.pokemon-card, .abilities-card{
     background-color: #f7f9f7;
     border-radius: 0.5rem;
     padding: 2rem;
     margin: 0.5rem;
-    width: 140%;
+    width: 73vh;
     box-shadow: #5a8eff33 0px 7px 29px 0px;
     text-align: left;
 }
 
-.pokemon-card_header {
-    font-size: 1rem;
-    font-weight: bold;
-    color: black;
+.pokemon-card_header, .abilities-card_header {
+    font-size: 0.8rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    font-weight: bold;
 }
 
 .pokemon-card_body {
     display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    margin-top: 1rem;
 }
 
-.pokemon-sprites h3{
-    font-size: 1rem;
+.pokemon-stats, .pokemon-sprites, .pokemon-evolution, .pokemon-abilities{
+    width: 22%;
 }
-
 .pokemon-sprites img {
-    width: 35%;
+    width: 50px;
+    height: 50px;
 }
 
 .pokemon-stats {
     color: #666;
-    font-size: 1rem;
-    text-align: right;
-}
-
-.pokemon-stats h3 {
-    font-weight: bold;
-    font-size: 1rem;
-    color: #000000;
-}
-
-.pokemon-evolution {
-    margin-top: 1rem;
-}
-
-.pokemon-evolution h3 {
-    font-size: 1rem;
-    font-weight: bold;
-    color: #000000;
-}
-
-.pokemon-evolution ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 0.5rem;
-}
-
-.pokemon-evolution li {
     font-size: 0.9rem;
-    color: #666;
-}
-.pokemon-abilities {
-    margin-top: 1rem;
+    text-align: center;
 }
 
-.pokemon-abilities h3 {
-    font-size: 1rem;
+.pokemon-sprites h3, .pokemon-stats h3, .pokemon-evolution h3, .pokemon-abilities h3{
     font-weight: bold;
+    font-size: 0.9rem;
     color: #000000;
+    margin-bottom: 0.5rem;
 }
 
-.pokemon-abilities ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 0.5rem;
+.pokemon-learn_it h3 {
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #000000;
+    margin-bottom: 1px;
 }
 
-.pokemon-abilities li {
+.pokemon-evolution ul, .pokemon-abilities ul, .pokemon-learn_it ul{
+    list-style-type: none;
+    font-size: 0.9rem;
+}
+
+.pokemon-evolution li, .pokemon-abilities li {
+    margin-top: 0;
     font-size: 0.9rem;
     color: #666;
 }
