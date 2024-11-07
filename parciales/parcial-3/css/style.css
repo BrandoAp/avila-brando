@@ -146,47 +146,44 @@ button:hover {
 
 .pokemon-card_body {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: baseline;
     margin-top: 1rem;
 }
 
-.pokemon-stats, .pokemon-sprites, .pokemon-evolution, .pokemon-abilities{
-    width: 22%;
-}
-.pokemon-sprites img {
+.pokemon-sprites-and-evolutions img{
     width: 50px;
     height: 50px;
 }
 
-.pokemon-stats {
-    color: #666;
-    font-size: 0.9rem;
-    text-align: center;
+.pokemon-sprites-and-evolutions h3, .pokemon-stats-and-abilities h3{
+    font-size: 1rem;
 }
 
-.pokemon-sprites h3, .pokemon-stats h3, .pokemon-evolution h3, .pokemon-abilities h3{
-    font-weight: bold;
+#header-abilities {
+    margin-top: 2.5rem;
+}
+
+.pokemon-sprites-and-evolutions ul, .pokemon-stats-and-abilities ul {
+    list-style-type: circle;
+    margin-left: 1rem;
     font-size: 0.9rem;
-    color: #000000;
-    margin-bottom: 0.5rem;
+    color: #595959;
+}
+
+.pokemon-stats-and-abilities p{
+    font-size: 0.8rem;
+    color: #595959;
+}
+
+.pokemon-learn_it ul{
+    list-style-type: circle;
+    font-size: 0.9rem;
+    color: #595959;
+    margin-left: 1.5rem;
 }
 
 .pokemon-learn_it h3 {
+    font-size: 1rem;
     margin-top: 1rem;
-    font-weight: bold;
-    font-size: 0.9rem;
-    color: #000000;
-    margin-bottom: 1px;
-}
-
-.pokemon-evolution ul, .pokemon-abilities ul, .pokemon-learn_it ul{
-    list-style-type: none;
-    font-size: 0.9rem;
-}
-
-.pokemon-evolution li, .pokemon-abilities li {
-    margin-top: 0;
-    font-size: 0.9rem;
-    color: #666;
 }

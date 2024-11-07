@@ -43,22 +43,17 @@ const getAbilities = async (name_ability) => {
 const renderPokemon = (template, pokemon) => {
   const { id, name, sprites, weight, height, abilities, evolution_chain } =
     pokemon;
+   
   const html = `
   <div class="pokemon-card">
     <div class="pokemon-card_header">
       <h2>${name.charAt(0).toUpperCase() + name.slice(1)} (${id})</h2>
     </div>
     <div class="pokemon-card_body">
-      <div class="pokemon-sprites">
+      <div class="pokemon-sprites-and-evolutions">
         <h3>Sprites</h3>
         <img src="${sprites.front_default}" alt="${name} front" />
-        <img src="${sprites.back_default}" alt="${name} back" />
-      </div>
-      <div class="pokemon-stats">
-        <h3>Weight / Height</h3>
-        <p>${weight / 10} kg / ${height / 10} m</p>
-      </div>
-      <div class="pokemon-evolution">
+        <img src="${sprites.back_default || sprites.front_shiny}" alt="${name} back" />
         <h3>Evolution Chain</h3>
         <ul>
           ${evolution_chain
@@ -71,8 +66,10 @@ const renderPokemon = (template, pokemon) => {
             .join("")}
         </ul>
       </div>
-      <div class="pokemon-abilities">
-        <h3>Abilities</h3>
+      <div class="pokemon-stats-and-abilities">
+        <h3>Weight / Height</h3>
+        <p>${weight / 10} kg / ${height / 10} m</p>
+        <h3 id="header-abilities">Abilities</h3>
         <ul>
           ${abilities.map(({ ability }) => `<li>${ability.name}</li>`).join("")}
         </ul>
