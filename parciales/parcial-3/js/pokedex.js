@@ -71,7 +71,7 @@ const renderPokemon = (template, pokemon, evolution_chain) => {
         <p>${weight / 10} kg / ${height / 10} m</p>
         <h3 id="header-abilities">Abilities</h3>
         <ul>
-          ${abilities.map(({ ability }) => `<li>${ability.name}</li>`).join("")}
+          ${abilities.map(({ ability, is_hidden }) => `<li>${ability.name} ${is_hidden ? "🙈" : ""}</li>`).join("")}
         </ul>
       </div>
     </div>
@@ -91,7 +91,7 @@ const renderAbilities = (template, ability) => {
       <div class="pokemon-learn_it">
         <h3>Who can learn it?</h3>
         <ul>${pokemon
-          .map(({ pokemon }) => `<li>${pokemon.name}</li>`)
+          .map(({ pokemon, is_hidden }) => `<li>${pokemon.name} ${is_hidden ? "🙈" : ""}</li>`)
           .join("")}</ul>
       </div>
     </div>
