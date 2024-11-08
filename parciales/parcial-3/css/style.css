@@ -13,6 +13,17 @@
     margin: 5rem;
  }
 
+ #github-icon-container img {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    right: 10px;
+    top: 0;
+    margin-top: 1rem;
+    cursor: pointer;
+    filter: invert(100);
+ }
+
 main {
     display: flex;
     flex-direction: column;
@@ -66,6 +77,10 @@ div.label-container {
     justify-content: space-between;
     font-size: small;
     font-weight: bold;
+}
+
+div.label-container > label.type-search {
+    margin-right: 28%;
 }
 
 div.inputs-container {

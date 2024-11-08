@@ -32,7 +32,7 @@ const handlers = {
       const pokemon = await getPokemon(sanitizedName);
       const evolutionChain = await getEvolution(sanitizedName);
       pokemon.evolution_chain = evolutionChain;
-      renderPokemon(htmlElements.details_section, pokemon);
+      renderPokemon(htmlElements.details_section, pokemon, evolutionChain);
     } else if (searchType === "abilities") {
       const abilities = await getAbilities(sanitizedName);
       renderAbilities(htmlElements.details_section, abilities);

@@ -24,12 +24,17 @@ const getEvolution = async (name_pokemon) => {
   const evolutionData = await evolutionResponse.json();
 
   const evolutions = [];
-  let currentEvolution = evolutionData.chain;
 
-  while (currentEvolution) {
-    evolutions.push(currentEvolution.species.name);
-    currentEvolution = currentEvolution.evolves_to[0];
-  }
+  const collectEvolutions = (evolution) => {
+    evolutions.push({
+      name : evolution.species.name,
+      is_baby: evolution.is_baby || false,
+    });
+    evolution.evolves_to.forEach((nextEvolution) => {
+      collectEvolutions(nextEvolution);
+    });
+  };
+  collectEvolutions(evolutionData.chain)
 
   return evolutions;
 };
@@ -40,9 +45,8 @@ const getAbilities = async (name_ability) => {
   return response.json();
 };
 
-const renderPokemon = (template, pokemon) => {
-  const { id, name, sprites, weight, height, abilities, evolution_chain } =
-    pokemon;
+const renderPokemon = (template, pokemon, evolution_chain) => {
+  const { id, name, sprites, weight, height, abilities} = pokemon;
    
   const html = `
   <div class="pokemon-card">
@@ -56,14 +60,10 @@ const renderPokemon = (template, pokemon) => {
         <img src="${sprites.back_default || sprites.front_shiny}" alt="${name} back" />
         <h3>Evolution Chain</h3>
         <ul>
-          ${evolution_chain
-            .map(
-              (evolution) =>
-                `<li>${
-                  evolution.charAt(0).toUpperCase() + evolution.slice(1)
-                } </li>`
-            )
-            .join("")}
+          ${evolution_chain.map((evolution) => {
+            const evolutionName = evolution.name.charAt(0).toUpperCase() + evolution.name.slice(1);
+            return `<li>${evolutionName} ${evolution.is_baby ? "👶🏻" : ""}</li>`
+          }).join('')}
         </ul>
       </div>
       <div class="pokemon-stats-and-abilities">
